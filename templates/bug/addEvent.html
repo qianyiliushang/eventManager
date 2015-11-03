@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block section %}
+    {{ title }}
+    <form method="post" action=".">
+        {{ form|crispy }}
+        <input type="submit" value="{% trans 'submit' %}"/>
+    </form>
 
-</body>
-</html>
+{% endblock %}

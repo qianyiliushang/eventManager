@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li class="pull-right"><a href="{% url 'auth_logout' %}">退出</a></li>
-                {% else %}
+                {% elif not "/accounts/register" in request.get_full_path %}
 
                     <li class="pull-right "><a href="{% url 'registration_register' %}">注册</a></li>
                 {% endif %}
@@ -32,9 +32,10 @@
                     </form>
                 {% endif %}
 
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </ul>
         </div>
     </div>
 </nav>

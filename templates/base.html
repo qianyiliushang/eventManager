@@ -18,12 +18,41 @@
 <body>
 
 {% include 'navbar.html' %}
-{% include 'sidebar.html' %}
-{% block dashboard %}
-{% endblock %}
+{% comment %}{% include 'sidebar.html' %}{% endcomment %}
+{% block homepage %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">问题查看</a></li>
+                    <li><a href="#">提交问题</a></li>
+                    <li><a href="#">报表</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">Nav item</a></li>
+                    <li><a href="">Nav item again</a></li>
+                    <li><a href="">One more nav</a></li>
+                    <li><a href="">Another nav item</a></li>
+                    <li><a href="">More navigation</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="">Nav item again</a></li>
+                    <li><a href="">One more nav</a></li>
+                    <li><a href="">Another nav item</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            {% block section %}
+            {% endblock section %}
+
+        </div>
+    </div>
+{% endblock homepage %}
 {% block content %}
 {% endblock %}
-
 
 
 </body>
