@@ -53,10 +53,11 @@ class Event(models.Model):
     last_update_time = models.DateTimeField("最后更新时间", auto_now_add=True)
     level = models.CharField("严重等级", max_length=100)
     solution = models.CharField("解决方案", max_length=100)
+    expect_resolve_time = models.DateField("预计解决时间",blank=True)
     emergency = models.CharField("紧急程度", max_length=100)
     channel = models.CharField("来源",max_length=100,blank=True)
-    reporter = models.OneToOneField(User)
-    op_history=models.ForeignKey(EventLog)
+    reporter = models.ForeignKey(User)
+    #op_history=models.ForeignKey(EventLog)
     attachment = models.FileField("附件",upload_to=settings.MEDIA_ROOT)
 
 

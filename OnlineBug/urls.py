@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from bug.views import AddEventView
 from bug import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'bug.views.home', name='home'),
-    url(r'^reportbug', views.addEvent, name='reportbug'),
+    url(r'^reportbug', AddEventView.as_view(), name='reportbug'),
     url(r'^accounts/', include('registration.backends.default.urls')),
 ]
